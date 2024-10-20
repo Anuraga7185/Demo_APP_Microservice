@@ -24,14 +24,12 @@ public class UserServiceApplication {
 
 	@PostMapping
 	public Book saveBook(@RequestBody Book book){
-		return null;
-	//	return repository.save(book);
+		return repository.save(book);
 	}
 
 	@GetMapping
 	public List<Book> getBooks(){
-		return new ArrayList<>();
-	//	return repository.findAll();
+		return repository.findAll();
 	}
 
 	public static void main(String[] args) {
