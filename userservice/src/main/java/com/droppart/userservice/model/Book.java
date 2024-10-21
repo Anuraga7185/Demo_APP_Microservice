@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Document(collection = "books")
 public class Book {
     @Id
-    private int id;
+    private String id;
     private String name;
     private String authorName;
 }
