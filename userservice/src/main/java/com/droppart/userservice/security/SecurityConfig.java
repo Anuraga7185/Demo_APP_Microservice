@@ -20,8 +20,7 @@ public class SecurityConfig {
 
         http.csrf(csrf -> csrf.disable())
                 .authorizeRequests().
-                requestMatchers("/book")
-                .authenticated()
+                requestMatchers("/book").authenticated()
                 .and().exceptionHandling(ex -> ex.authenticationEntryPoint(point))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         http.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
