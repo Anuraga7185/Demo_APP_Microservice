@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: PRODUCT-SERVICE
+server:
+  port: 8083
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://3.27.124.109:8761/eureka
