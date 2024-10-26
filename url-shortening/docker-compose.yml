@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  url-service:
+    build:
+      context: ./userservice
+      dockerfile: Dockerfile
+    volumes:
+      - /tmp
+    ports:
+      - "8080:8080"  # Expose the container port 8080 to host port 8080
+    environment:
+      - JAVA_OPTS=-Xmx512m  # Optional Java memory settings
+      - SPRING_DATA_MONGODB_URI=mongodb://mongo:27017/urlservice_db  # MongoDB connection URI
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+
+  mongo:
+    image: mongo:5.0
+    container_name: mongo
+    ports:
+      - "27017:27017"  # Expose MongoDB on port 27017
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=urlservice_db  # Initialize MongoDB with a database
+    networks:
+      - app-network
+
+volumes:
+  mongo_data:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge
