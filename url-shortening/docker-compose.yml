@@ -19,7 +19,7 @@ services:
 
   mongo:
     image: mongo:5.0
-    container_name: mongo
+    container_name: mongodb
     ports:
       - "27017:27017"  # Expose MongoDB on port 27017
     volumes:
