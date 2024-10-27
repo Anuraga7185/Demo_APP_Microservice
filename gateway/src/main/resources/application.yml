@@ -20,7 +20,7 @@ spring:
         - id: URL-SHORTENER
           uri: lb://URL-SHORTENER
           predicates:
-            - Path=/droppart/**    
+            - Path=/droppart/urls**    
 
 
 eureka:
