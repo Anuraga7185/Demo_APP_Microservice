@@ -17,6 +17,10 @@ spring:
           uri: lb://JWT-DEMO
           predicates:
             - Path=/auth/**
+        - id: URL-SHORTENER
+          uri: lb://URL-SHORTENER
+          predicates:
+            - Path=/droppart/**    
 
 
 eureka:
